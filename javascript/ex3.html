@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h3>예제3</h3>
+    <form action="#" method="GET">
+      <table border="0">
+        <tr>
+          <td>구분</td>
+          <td>
+            <select name="divistion">
+              <option value="opt1">선택</option>
+              <option value="opt2">선택2</option>
+              <option value="opt3">선택3</option>
+              <option value="opt4">선택4</option>
+            </select>
+            <tr>
+              <td>제목</td>
+              <td><input type="text" name="subject" /></td>
+            </tr>
+            <tr>
+              <td>비밀글</td>
+              <td><input type="checkbox" name="scret" /> 비밀글 여부</td>
+            </tr>
+            <tr>
+              <td>내용</td>
+              <td>
+                <textarea rows="10" name="contents"> </textarea>
+              </td>
+            </tr>
+
+            <tr>
+              <td>첨부파일</td>
+              <td>
+                <input type="text" name="filename" />
+                <input type="file" name="file" />
+              </td>
+            </tr>
+            <tr>
+              <td colspan="2" align="center">
+                <input type="submit" value="등록" />
+                <input type="reset" value="취소" />
+              </td>
+            </tr>
+          </td>
+        </tr>
+      </table>
+    </form>
+  </body>
+</html>
