@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <label for="theme">Select theme : </label>
+    <select id="theme">
+      <option value="white" selected>light</option>
+      <option value="black">dart</option>
+    </select>
+
+    <h1>This is my website</h1>
+
+    <script>
+      const selectEl = document.querySelector('select');
+      const htmlEl = document.querySelector('html');
+      document.body.style.padding = '10px';
+
+      selectEl.onchange = function () {
+        selectEl.value == 'black'
+          ? changeTheme('black', 'white')
+          : changeTheme('white', 'black');
+      };
+
+      function changeTheme(bgColor, textColor) {
+        htmlEl.style.backgroundColor = bgColor;
+        htmlEl.style.color = textColor;
+        console.log('bg : ' + bgColor + ' / color : ' + textColor);
+      }
+    </script>
+  </body>
+</html>

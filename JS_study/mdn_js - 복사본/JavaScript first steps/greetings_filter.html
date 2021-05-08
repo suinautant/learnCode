@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="output">
+      <ul></ul>
+    </div>
+
+    <script>
+      var list = document.querySelector(".output ul");
+      list.innerHTML = "";
+      var greetings = [
+        "Happy Birthday!",
+        "Merry Christmas my love",
+        "A happy Christmas to all the family",
+        "You're all I want for Christmas",
+        "Get well soon",
+      ];
+      for (var i = 0; i < greetings.length - 1; i++) {
+        var input = greetings[i];
+        var result = input.indexOf("Christmas");
+        console.log(input, " is include Christmas. result : ", result);
+
+        if (result > 0) {
+          if (greetings[i]) {
+            var result = input;
+            var listItem = document.createElement("li");
+            listItem.textContent = result;
+            list.appendChild(listItem);
+          }
+        }
+      }
+    </script>
+  </body>
+</html>
