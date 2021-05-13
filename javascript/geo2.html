@@ -1,0 +1,25 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>위치정보</title>
+    <script src="http://maps.googleapis.com/maps/api/js"></script>
+    <script>
+        function initialize(){
+            var hongup = {lat: 35.180563, lng: 129.075159}; // 위도, 경도 정보 
+        var map = new google.maps.Map(
+                 document.getElementById('googleMap'), {zoom: 18, center: hongup}
+        ); // 구글 지도 객체를 생성하고, 위치로 맞춘다.
+        var marker = new google.maps.Marker({position: hongup, map: map});
+         // 마커를 위치시키는 코드
+        }
+        function draw(){
+            initialize();
+        }
+
+    </script>
+</head>
+<body onload="draw()">
+    <div id="googleMap" style="width:400px;height:400px;border:1px solid black"></div>
+    <input type="button" value="닫기" onclick="window.close()">
+</body>
+</html>

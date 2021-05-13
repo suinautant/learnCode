@@ -1,16 +1,35 @@
 <!DOCTYPE html>
 <html lang="ko">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-    <script></script>
-  </head>
-  <body>
-    <form action="#" name="frmJoin">
-      <input type="checkbox" name="agreement" id="agreement" />약관동의<br />
-      <input type="button" value="전송" onclick="check()" />
-    </form>
-  </body>
+<head>
+    <meta charset="UTF-8">
+    <title>JavaScript Intro</title>
+    <script>
+        function check(){
+            var regExpPw = /^.*(?=.{6,20})(?=.*[0-9])(?=.*[a-zA-Z]).*$/;
+
+            var pw = document.getElementById("pw").value;
+
+            if(!regExpPw.test(pw)) {
+                //경고
+                alert("패스워드를 다시 입력해주세요!");
+                return false;
+            }else{
+                alert("성공");
+            }
+        }
+    </script>
+</head>
+<body>
+        <form name="member" action="#" method="post">
+        <table>
+        <tr>
+        <td>아이디 :</td>
+        <td><input type="text" id="id"></td>
+        </tr>
+        <td>패스워드 :</td>
+        <td><input type="password" id="pw"></td>
+        <td><input type="button" value="로그인" onclick="check()"></td>
+        <table>
+        </form>
+</body>
 </html>
