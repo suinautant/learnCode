@@ -1,5 +1,0 @@
-<!-- <input type="reset" value="취소"> -->
-<a href="#" onclick="document.폼태그이름.reset()"><img src="images/ex6-2.jpg"></a>
-
-<! -- <input type="button" value="등록" onclick="check()"> -->
-<a href="#" onclick="check()"><img src="images/ex6-1.jpg"></a>
