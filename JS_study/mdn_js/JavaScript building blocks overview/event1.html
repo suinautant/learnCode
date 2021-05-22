@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <button name="button">Change Color</button>
+    <script>
+      const btn = document.querySelector('button');
+
+      function random(number) {
+        return Math.floor(Math.random() * (number + 1));
+      }
+
+      btn.onclick = () => {
+        const rndCol =
+          'rgb(' + random(255) + ',' + random(255) + ',' + random(255) + ')';
+        const buttonCol =
+          'rgb(' + random(255) + ',' + random(255) + ',' + random(255) + ')';
+        document.body.style.backgroundColor = rndCol;
+        btn.style.background = buttonCol;
+      };
+    </script>
+  </body>
+</html>

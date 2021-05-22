@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      function changeImage() {
+        var imgSrc = document.getElementById('image');
+        var defSrc = './images/coffee.gif';
+        var index = imgSrc.src.match('dog');
+        console.log(imgSrc + index);
+
+        // imgSrc.src = './images/dog.png';
+        if (!index) imgSrc.src = './images/dog.png';
+        else imgSrc.src = defSrc;
+      }
+    </script>
+  </head>
+  <body>
+    <img
+      id="image"
+      src="./images/coffee.gif"
+      width="120"
+      height="100"
+      onclick="changeImage()"
+    /><br />
+    <input type="button" value="눌러보세요" onclick="changeImage()" />
+    <p>이미지를 눌러도 됩니다.</p>
+  </body>
+</html>

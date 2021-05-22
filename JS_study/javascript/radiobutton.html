@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <title>라디오 버튼 체크 여부 확인하기</title>
+ 
+  <script type="text/javascript">
+    function CheckForm(){
+        // 라디오버튼 체크여부 확인
+        var isSeasonChk = false;
+        var arr_Season = document.getElementsByName("SEASON[]");
+        for(var i=0;i<arr_Season.length;i++){
+            if(arr_Season[i].checked == true) {
+                isSeasonChk = true;
+                break;
+            }
+        }
+
+        if(!isSeasonChk){
+            alert("계절의 종류를 반드시 1개를 한 개 선택해주세요.");
+            return false;
+        }
+    }
+ </script>
+ </head>
+ <body>
+ <form name="frmJoin" action="#">
+    <input type="radio" id="spring" name="SEASON[]" value="1" >봄
+    <input type="radio" id="summer" name="SEASON[]" value="2" >여름
+    <input type="radio" id="fall" name="SEASON[]" value="3" >가을
+    <input type="radio" id="windter" name="SEASON[]" value="4" >겨울 <br>
+    <input type="button" value="전송" onclick="CheckForm()">
+ </form>
+</body>
+</html>

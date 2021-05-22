@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      table tr td {
+        margin: 0;
+        padding: 0;
+      }
+      .firstTd {
+        padding-right: 20px;
+        margin: 0;
+      }
+      .thirdTd {
+        margin: 0;
+        padding: 0;
+        text-align: right;
+      }
+      .input {
+        border: 1px solid gray;
+        width: 300px;
+        height: 40px;
+      }
+      .saveId {
+        font-weight: bold;
+      }
+      .loginBtn {
+        background-color: gray;
+        color: white;
+        border: none;
+        width: 200px;
+        height: 100px;
+        font-size: 18px;
+        font-weight: bold;
+        margin-left: 0;
+      }
+      .table {
+        color: gray;
+        font-size: 15px;
+      }
+      .span {
+        color: cornflowerblue;
+      }
+    </style>
+    <script>
+      function check() {
+        var useridEl = document.getElementById('jsUserid');
+        var passwordEl = document.getElementById('jsPwd');
+        var loginBtnEl = document.getElementById('jsLogin');
+        var pwdLength = passwordEl.value.length;
+
+        if (!useridEl.value) {
+          alert('ID 입력하세요');
+          useridEl.value = '';
+          useridEl.focus();
+          return false;
+        }
+        if (!passwordEl.value) {
+          alert('PW 입력하세요');
+          passwordEl.value = '';
+          passwordEl.focus();
+          return false;
+        }
+
+        if (pwdLength < 8 || pwdLength > 12) {
+          alert('PW는 8~12자리로 입력하세요');
+          passwordEl.value = '';
+          passwordEl.focus();
+          return false;
+        }
+
+        loginBtnEl.submit();
+      }
+    </script>
+  </head>
+  <body onload="document.getElementById('jsUserid').focus()">
+    <h3>예제1</h3>
+    <form id="jsLogin" action="#" method="POST">
+      <table border="0" class="table">
+        <tr>
+          <td class="firstTd">이메일(아이디)</td>
+          <td colspan="2" width="310" class="secondTd">
+            <input
+              type="email"
+              name="emailId"
+              placeholder="Email 또는 ID를 입력하십시오"
+              class="input"
+              id="jsUserid"
+            />
+          </td>
+          <td width="150" rowspan="2" align="center" class="thirdTd">
+            <input
+              type="button"
+              value="로그인"
+              id="jsLoginBtn"
+              class="loginBtn"
+              onclick="check()"
+            />
+          </td>
+        </tr>
+        <tr>
+          <td>비밀번호</td>
+          <td colspan="2" class="secondTd">
+            <input
+              type="password"
+              name="password"
+              placeholder="비밀번호를 입력해 주세요"
+              class="input"
+              id="jsPwd"
+            />
+          </td>
+        </tr>
+        <tr>
+          <td></td>
+          <td class="saveId">
+            <input type="checkbox" name="saveId" />아이디저장
+          </td>
+          <td colspan="2" align="center">
+            아이디 찾기 | 비밀번호 찾기 |
+            <span class="span"> 회원가입 </span>
+          </td>
+        </tr>
+      </table>
+    </form>
+  </body>
+</html>

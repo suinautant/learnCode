@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      function fieldChk(curr, next) {
+        var currEl = document.getElementById(curr);
+        var nextEl = document.getElementById(next);
+        if (currEl.value == '') {
+          alert(curr + '은 반드시 입력해야 합니다.');
+          currEl.focus();
+          return false;
+        } else {
+          nextEl.focus();
+          return false;
+        }
+      }
+      function check() {
+        var nameEl = document.getElementById('name');
+        var sexEl = document.getElementsByName('sex');
+        var telEl = document.getElementById('tel');
+        var emailEl = document.getElementById('email');
+        var passwd1El = document.getElementById('passwd1');
+        var passwd2El = document.getElementById('passwd2');
+        var passwdExp = /^.*(?=.{6,8}).*$/;
+        var emailExp = /^[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*\.[a-zA-Z]{2,3}$/i;
+        var telExp = /^\d{3}-\d{3,4}-\d{4}$/;
+        var radioChk = false;
+
+        var arrField = ['name', 'tel', 'email', 'passwd1', 'passwd2'];
+
+        fieldChk('name', 'tel');
+        fieldChk(name, tel);
+
+        // 인풋 타입 radio 입력 값 확인
+        // if (nameEl.value == '') {
+        //   alert('이름을 입력해야 합니다.');
+        //   nameEl.value = '';
+        //   nameEl.focus();
+        //   return false;
+        // }
+        // if (telEl.value == '') {
+        //   alert('연락처를 입력해야 합니다.');
+        //   telEl.value = '';
+        //   telEl.focus();
+        //   return false;
+        // }
+        // if (emailEl.value == '') {
+        //   alert('이메일을 입력해야 합니다.');
+        //   emailEl.value = '';
+        //   emailEl.focus();
+        //   return false;
+        // }
+        // if (passwd1El.value == '') {
+        //   alert('패스워드를 입력해야 합니다.');
+        //   passwd1El.value = '';
+        //   passwd1El.focus();
+        //   return false;
+        // }
+        // if (passwd2El.value == '') {
+        //   alert('패스워드 검증을 입력해야 합니다.');
+        //   passwd2El.value = '';
+        //   passwd2El.focus();
+        //   return false;
+        // }
+        if (!telEl.value.match(telExp)) {
+          alert('올바른 전화번호를 입력하세요');
+          telEl.value = '';
+          telEl.focus();
+          return false;
+        }
+
+        if (!emailEl.value.match(emailExp)) {
+          alert('올바른 이메일을 입력하세요');
+          emailEl.value = '';
+          emailEl.focus();
+          return false;
+        }
+        if (!passwd1El.value.match(passwdExp)) {
+          alert('비밀번호는 6자리 이상 8자리 이하로 입력해야 합니다');
+          passwd1El.value = '';
+          passwd1El.focus();
+          return false;
+        }
+
+        if (passwd1El.value !== passwd2El.value) {
+          alert('패스워드와 검증 값이 다름');
+          passwd2El.value = '';
+          passwd2El.focus();
+          return false;
+        }
+        for (var i = 0; i < sexEl.length; i++) {
+          if (sexEl[i].checked) {
+            radioChk = true;
+          }
+        }
+        if (!radioChk) {
+          alert('성별를 입력해야 합니다.');
+          sexEl.value = '';
+          // TODO : 포커스 기능 추가 필요
+          //   sexEl.focus();
+          return false;
+        }
+      }
+    </script>
+  </head>
+  <body onload="document.getElementById('name').focus()">
+    <label for="border"><h2>회원 신청서</h2> </label>
+    <table border="0" id="border">
+      <tr>
+        <td>이름*</td>
+        <td>
+          <input type="text" id="name" />
+        </td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>성별*</td>
+        <td>
+          <input type="radio" name="sex" value="male" class="sex" />남성
+          <input type="radio" name="sex" value="female" class="sex" />여성
+        </td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>휴대폰 번호Phone*</td>
+        <td>
+          <input type="tel" name="tel" id="tel" />
+        </td>
+        <td>올바른 전화번호를 입력하시오!</td>
+      </tr>
+      <tr>
+        <td>이메일*</td>
+        <td>
+          <input type="email" name="email" id="email" />
+        </td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>패스워드(6-8 글자)*</td>
+        <td>
+          <input type="password" name="passwd1" id="passwd1" />
+        </td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>패스워드 검증*</td>
+        <td>
+          <input type="password" name="passwd2" id="passwd2" />
+        </td>
+        <td></td>
+      </tr>
+      <tr>
+        <td></td>
+        <td>
+          <input type="button" value="제출" onclick="check()" />
+          <input type="button" value="지우기" />
+        </td>
+        <td></td>
+      </tr>
+    </table>
+  </body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      var w;
+      var tap = 50;
+      function openWindow() {
+        w = window.open(' ', ' ', 'width=200, height=200, top=0, left=0');
+        w.document.write('<p>오늘 다음과 같은 상품을 싸게 팝니다.</p>');
+        // w.moveTo(0, 0);
+      }
+
+      function rightMove() {
+        w.moveBy(tap, 0);
+        w.focus();
+      }
+
+      function downMove() {
+        w.moveBy(0, tap);
+        w.focus();
+      }
+      function leftMove() {
+        w.moveBy(-tap, 0);
+        w.focus();
+      }
+      function upMove() {
+        w.moveBy(0, -tap);
+        w.focus();
+      }
+    </script>
+  </head>
+  <body>
+    <input type="button" value="윈도우 생성" onclick="openWindow()" />
+    <br />&nbsp;&nbsp;
+    <input type="button" value="▲" onclick="upMove()" />
+    <br />
+    <input type="button" value="◀" onclick="leftMove()" />&nbsp;
+    <input type="button" value="▶" onclick="rightMove()" />
+    <br />&nbsp;&nbsp;
+    <input type="button" value="▼" onclick="downMove()" />
+  </body>
+</html>

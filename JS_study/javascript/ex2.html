@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        padding: 0;
+        margin: 0;
+      }
+      .button,
+      .register {
+        border: 1px solid #03c75a;
+        background-color: #03c75a;
+        color: white;
+        width: 90px;
+        height: 30px;
+      }
+      .register {
+        width: 300px;
+      }
+      .input,
+      .birth,
+      .tel {
+        width: 300px;
+        height: 30px;
+        border: 1px solid #d1d1d1;
+      }
+      .birth {
+        width: 95px;
+        border: 1px solid #d1d1d1;
+      }
+      .tel {
+        width: 200px;
+      }
+      table {
+        font-size: small;
+        font-weight: bold;
+      }
+    </style>
+  </head>
+  <body>
+    <h3>예제2</h3>
+    <table border="0">
+      <form action="#" method="GET">
+        <tr>
+          <td><img src="images/naver_logo.gif" /></td>
+        </tr>
+        <tr>
+          <td>
+            <span class="font">아이디</span><br />
+            <input
+              class="input"
+              type="text"
+              name="id"
+              placeholder="@naver.com"
+            />
+          </td>
+        </tr>
+        <tr>
+          <td>
+            비밀번호<br />
+            <input class="input" type="pinputassword" name="password1" />
+          </td>
+        </tr>
+        <tr>
+          <td>
+            비밀번호 재확인 <br />
+            <input class="input" type="pinputassword" name="password2" />
+          </td>
+        </tr>
+        <tr>
+          <td>
+            이름<br />
+            <input class="input" type="tinputext" name="name" />
+          </td>
+        </tr>
+        <tr>
+          <td>
+            생년월일<br />
+            <input
+              class="birth"
+              type="tinputext"
+              name="birthYear"
+              placeholder="년(4자)"
+            />
+            <select class="birth" name="birthMonth">
+              <option>1월</option>
+              <option>2월</option>
+              <option>3월</option>
+              <option>4월</option>
+              <option>5월</option>
+              <option>6월</option>
+              <option>7월</option>
+              <option>8월</option>
+              <option>9월</option>
+              <option>10월</option>
+              <option>11월</option>
+              <option>12월</option>
+            </select>
+            <input
+              class="birth"
+              type="tinputext"
+              name="birthDay"
+              placeholder="일"
+            />
+          </td>
+        </tr>
+        <tr>
+          <td>
+            성별<br />
+            <select class="input" name="sinputec">
+              <option>남</option>
+              <option>여</option>
+            </select>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            본인 확인 이메일(선택)<br />
+            <input class="input" type="einputmail""name="verifyEmail"
+            placeholder="선택입력" />
+          </td>
+        </tr>
+        <tr>
+          <td>
+            휴대전화<br />
+            <select class="input" name="countryCode">
+              <option>대한민국 +82</option>
+            </select>
+            <br />
+            <input class="tel" type="text" name="phoneNum" />
+            <input
+              class="button"
+              type="submit"
+              value="인증번호 받기"
+              placeholder="전화번호 입력"
+            /><br />
+            <input
+              class="input"
+              type="number"
+              name="verifyAuthNum"
+              placeholder="인증번호 입력하세요"
+            />
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <input class="register" type="submit" value="가입하기" />
+          </td>
+        </tr>
+      </form>
+    </table>
+  </body>
+</html>
