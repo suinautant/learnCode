@@ -1,0 +1,10 @@
+package sec03_example;
+
+public class MemberExample {
+	public static void main(String[] args) {
+		Member member = new Member("È«±æµ¿", "hong");
+
+		System.out.println("ÀÌ¸§ : " + member.name + " / id : " + member.id);
+
+	}
+}
