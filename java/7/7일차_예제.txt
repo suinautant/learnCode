@@ -1,0 +1,130 @@
+문제1. 아래와 같이 Calc 인터페이스를 선언하였을 때 Calculator 클래스를 구현하고 CalculatorExam 클래스를 만들어 출력하는 자바프로그램을 작성하여 보시오.
+
+- Calc 인터페이스 -
+public interface Calc {
+	public int add(int num1, int num2); // 덧셈
+	public int sub(int num1, int num2); // 뺄셈
+	public int mul(int num1, int num2); // 곱셈
+	public int div(int num1, int num2); // 나눗셈
+}
+
+- 출력예 -
+2개의 정수값을 입력하세요 : 8 5
+덧셈 : 13
+뺄셈 : 3
+곱셈 : 40
+나눗셈 : 1
+
+import java.util.Scanner;
+
+interface Calc {
+	public int add(int num1, int num2); // 덧셈
+	public int sub(int num1, int num2); // 뺄셈
+	public int mul(int num1, int num2); // 곱셈
+	public int div(int num1, int num2); // 나눗셈
+}
+
+class Calculator implements Calc{
+	
+}
+
+public class CalculatorExam {
+	public static void main(String[] args) {
+		
+}
+
+문제2. 문제1에서 나머지 기능을 추가하여 출력하고자 한다. 나머지 기능에 해당하는 인터페이스를 선언 후 Calc 인터페이스를 상속받아 구현하고 출력하는 자바프로그램을 작성하여 보시오.
+
+import java.util.Scanner;
+
+interface Calc {
+	public int add(int num1, int num2); // 덧셈
+	public int sub(int num1, int num2); // 뺄셈
+	public int mul(int num1, int num2); // 곱셈
+	public int div(int num1, int num2); // 나눗셈
+}
+
+interface Calc2 extends Calc{
+	
+}
+
+class Calculator2 implements Calc2{
+	
+}
+
+public class CalculatorExam2 {
+	public static void main(String[] args) {
+		
+	}
+}
+
+문제3. 아래와 같이 ScoreTest 인터페이스를 선언하였을 때 Score클래스를 구현하고 ScoreExam 클래스를 만들어 출력하는 자바프로그램을 작성하여 보시오.
+
+- Score 인터페이스 -
+public interface ScoreTest {
+	public int sum(int kor, int eng, int mat); // 총점
+	public double avg(int sum); // 평균
+}
+
+-출력예 -
+국어, 영어, 수학 점수를 차례대로 입력하세요 : 85 95 70
+국어 : 85점, 영어 : 95점, 수학 : 70점
+세 과목의 합계는 250점이고 평균은 83.3333점입니다.
+
+import java.util.Scanner;
+
+interface ScoreTest {
+	public int sum(int kor, int eng, int mat); // 총점
+	public double avg(int sum); // 평균
+}
+
+class Score implements ScoreTest{
+	public int sum(int kor, int eng, int mat) {
+		return kor+eng+mat;
+	}
+	public double avg(int sum) {
+		return (double)sum/3;
+	}
+}
+
+public class ScoreExam {
+	public static void main(String[] args) {
+		
+}
+
+문제4. 아래와 같이 CircleTest 인터페이스를 선언하였을 때 CircleRadius 클래스를 구현하고 CircleExam 클래스를 만들어 사용자로부터 원의 반지름을 입력받아서 원의 둘레와 면적을 출력하는 자바프로그램을 작성하여 보시오.
+
+- CircleTest 인터페이스 -
+public interface CircleTest {
+	public double PI=3.14; // 원주율
+	
+	public double circumstance(); // 원 둘레
+	public double area(); // 원 면적
+}
+
+- 출력예 -
+원의 반지름을 입력하세요 : 5.0
+원의 둘레는 31.40이며 원의 면적은 78.50입니다.
+
+import java.util.Scanner;
+
+interface CircleTest {
+	public double PI=3.14; // 원주율
+	
+	public double circumstance(double r); // 원 둘레
+	public double area(double r); // 원 면적
+}
+
+class CircleRadius implements CircleTest{
+	public double circumstance(double r) {
+		
+	}
+	public double area(double r) {
+		
+	}
+}
+
+public class CircleExam {
+	public static void main(String[] args) {
+		
+}
