@@ -1,0 +1,70 @@
+use test;
+
+
+CREATE TABLE member (
+	no INT PRIMARY KEY,
+	name VARCHAR(20) NOT NULL,
+	age INT,
+	tel CHAR(13),
+	addr VARCHAR(50)
+	);
+
+--
+
+CREATE DATABASE test2;
+
+CREATE TABLE membership (
+	no IINT PRIMARY KEY,
+	name VARCHAR(20),
+	tel char(13),
+	addr VARCHAR(50),
+	etc text
+	);
+
+--
+
+CREATE DATABASE school;
+
+use school;
+
+CREATE TABLE student (
+  snum  VARCHAR(12) NOT NULL,
+  sname VARCHAR(10) NOT NULL,
+  ssex  VARCHAR(2) NOT NULL,
+  sbirth date NOT NULL,
+  saddr VARCHAR(50),
+  stel VARCHAR(13),
+  semail VARCHAR(30),
+  setc VARCHAR(30)
+);
+
+--
+
+CREATE TABLE person (
+  perno     INT              NOT NULL,
+  pname    VARCHAR(10) NOT NULL,
+  job        VARCHAR(10) NOT NULL,
+  hiredate  date             NOT NULL,
+  firedate   date,
+  sal          int,
+  bonus      int,
+  deptno    int              NOT NULL
+);
+
+--
+
+CREATE DATABASE myhome;
+
+USE myhome;
+
+CREATE TABLE member (
+ no INT,
+ name VARCHAR(10),
+ id VARCHAR(10),
+ password VARCHAR(8),
+ ssn1 VARCHAR(6),
+ ssn2 VARCHAR(7),
+ address VARCHAR(50),
+ tel VARCHAR(15),
+ etc text
+);
