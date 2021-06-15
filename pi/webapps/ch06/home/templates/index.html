@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}"">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h2>HOME IOT</h2>
+        </div>
+        <div class="main">
+            <div>
+                <button onclick="led_on()">LED ON</button>
+            </div>
+            <div>
+                <button onclick="led_off()">LED OFF</button>
+            </div>
+        </div>
+        
+        <div id="result"> </div>
+    </div>
+    <script>
+        function led_on() {
+            fetch("/led/on")
+            .then(response=> response.text())
+            .then(data=> {
+                console.log(data);
+                let result = document.querySelector("#result");
+                if(data=="ok") {
+                    result.innerHTML = "<h1>LED is running</h1>"
+                } else {
+                    result.innerHTML = "<h1>error</h1>"
+                }
+            });
+        }
+        function led_off() {
+            fetch("/led/off")
+            .then(
+                function (response) {
+                return response.text();
+            })
+            .then(
+                function (data) {
+                console.log(data);
+                let result = document.querySelector("#result");
+                if(data=="ok") {
+                    result.innerHTML = "<h1>LED is stopping</h1>";
+                } else {
+                    result.innerHTML = "<h1>error</h1>";
+                }
+            });
+        }
+    </script>
+    
+</body>
+</html>
