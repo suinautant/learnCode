@@ -1,0 +1,134 @@
+※ 아래의 지시사항에 따라 실습하여 보시오.
+문제1. 이름이 김씨인 사람의 모든 컬럼을 검색하여 보시오.
+
+	SELECT * FROM employee WHERE pname LIKE '김%';
+
+문제2. 2010년에 입사한 사람의 이름, 입사일, 급여를 검색하여 보시오.
+
+	SELECT * FROM employee WHERE hiredate LIKE '2010-%';
+
+문제3. 직급이 과장인 사람의 급여평균을 구하여 보시오. 단, 별칭은 임의로 하시오.
+
+	SELECT AVG(sal) as '과장 급여' FROM employee WHERE job='과장';
+
+v문제4. 직급의 개수를 출력하여 보시오. 단, 중복되는 값을 제외하시오.
+
+	SELECT COUNT(DISTINCT job) as '직급 수' FROM employee;
+
+v문제5. 부서번호별로 부서번호와 급여의 평균을 출력하여 보시오. 
+
+	SELECT deptno, AVG(sal) FROM employee 
+		GROUP BY deptno;
+
+
+문제6. 퇴사한 사람수를 구하여 보시오.
+	SELECT COUNT(*) FROM employee WHERE firedate IS NOT NULL;
+
+	SELECT COUNT(firedate) FROM employee ;
+
+v문제7. 급여의 평균보다 많은 사람의 이름, 직급, 급여순으로 출력하여 보시오. 단, 급여를 내림차순 정렬하시오.
+
+	SELECT pname, job, sal FROM employee 
+		WHERE sal > (SELECT AVG(sal) FROM employee) ORDER BY sal DESC;
+
+문제8. 이름, 급여, 보너스, 연봉순으로 출력하여 보시오. 단, 연봉은 (월급여*12)+보너스로 한다.
+
+	SELECT pname, sal, bonus, sal*12+IFNULL(bonus, 0) as '연봉' FROM employee;
+		
+
+문제9. 보너스를 받지 않는 사람의 수를 구하여 보시오. 단, 별칭은 임의로 하시오.
+
+	SELECT COUNT(*) as '보너스 없는 사람 수' FROM employee 
+		WHERE bonus IS NULL;
+
+v문제10. 김진수의 직급과 같은 직급을 가진 사람의 사원번호, 이름, 직급순으로 출력하여 보시오. 
+단, 이름을 오름차순 정렬하시오.
+
+	SELECT perno, pname, job FROM employee
+		WHERE job = (SELECT job FROM employee WHERE pname='김진수') 
+		ORDER BY pname;
+
+
+문제11. 부서번호가 30인 사원의 급여평균을 구하여 보시오.
+	select avg(sal) as '부서번호 30 급여평균' from employee
+		where deptno=30;
+
+문제12. 사원명이 박청규를 대리로 진급하고 급여를 150만원으로 데이터 수정하시오. 
+그리고, 데이터가 수정되었는지 확인하여 보시오. 
+
+	UPDATE employee
+		SET job='대리', sal=1500000
+		WHERE pname='박청규';
+
+문제13. 2011년 12월 31일까지 입사한 직급이 '사원'인 사람의 급여를 10% 인상하도록 수정하시오. 
+그리고, 데이터가 수정되었는지 확인하여 보시오. 
+
+	UPDATE employee SET sal=sal*1.1 
+		WHERE hiredate <= '2011-12-31' AND job='사원';
+
+문제14. 사원명이 강원일을 부서번호 40으로 데이터 수정하시오. 그리고, 데이터가 수정되었는지 확인하여 보시오. 
+
+	UPDATE employee SET deptno=40
+		WHERE pname='강원일';
+
+문제15. 퇴사한 사원들의 데이터를 삭제하시오. 그리고, 데이터가 삭제되었는지 확인하여 보시오. 
+
+	DELETE FROM employee
+		WHERE firedate IS NOT NULL;
+
+v문제16. 급여가 가장 작은 사람의 이름과 급여, 부서번호를 출력하여 보시오.
+
+	SELECT pname, sal, deptno FROM employee
+		WHERE sal = (SELECT MIN(sal) FROM employee);
+
+
+문제17. 사원명이 전민철을 부사장으로 승진시키고 급여를 600만원, 보너스를 100만원으로 인상하도록 데이터를 수정하시오. 
+그리고, 데이터가 수정되었는지 확인하여 보시오. 
+	update employee
+		set job='부사장',sal=6000000,bonus=1000000
+		where pname='전민철';
+
+v문제18. 부서별로 부서번호와 월급여의 합계를 출력하여 보시오. 단, 부서번호는 10, 20번만 출력하시오.
+	
+	SELECT deptno, AVG(sal) FROM employee 
+		WHERE deptno IN (SELECT DISTINCT deptno FROM employee);	
+
+	SELECT deptno, sum(sal) FROM employee 
+		WHERE deptno=10 OR deptno=20
+		GROUP BY deptno;
+
+10 	9418000
+20	4200000	
+
+문제19. 부서번호가 30인 사원들의 보너스(특별상여금)를 기존 보너스에 50만원 추가하여 데이터를 수정하여 보시오. 
+그리고, 데이터가 수정되었는지 확인하여 보시오.
+
+	UPDATE employee
+		SET bonus = IFNULL(bonus, 0) + 500000
+		WHERE deptno = 30;
+
+	update employee
+		set bonus = bonus+500000
+		where deptno=30;
+
+	update employee
+		set bonus = 500000
+		where deptno =30 and (bonus is NULL);
+
+	select * from employee;
+
+문제20. 직급이 사원과 대리인 사람수를 구하여 보시오. 단, 별칭은 임의로 하시오.
+
+	SELECT COUNT(*) FROM employee
+		WHERE job='사원' OR job='대리'
+		GROUP BY job;
+
+	SELECT COUNT(job) FROM employee
+		WHERE job='사원' OR job='대리';
+
+	SELECT COUNT(job) FROM employee
+		WHERE job IN ('사원', '대리');
+
+	// 사원과 대리가 아닌 경우 NOT IN
+	SELECT job FROM employee
+		WHERE job NOT IN ('사원', '대리');

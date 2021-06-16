@@ -1,0 +1,254 @@
+CREATE DATABASE IF NOT EXISTS myhome2;
+
+use myhom2;
+
+CREATE TABLE member (
+	no INT,
+	name VARCHAR(10)
+	);
+
+--
+CREATE DATABASE IF NOT EXISTS myhome2;
+
+show databases;
+
+use myhom2;
+
+CREATE TABLE member2 (
+	no INT PRIMARY KEY AUTO_INCREMENT,
+	name VARCHAR(10) NOT NULL,
+	tel CHAR(13) NOT NULL,
+	addr VARCHAR(50),
+	birthday DATE
+);
+
+SHOW TABLES;
+
+DESC member2;
+
+--
+
+INSERT INTO  member2 VALUES (1, '홍길동', '010-111-111', '부산', '2021-06-16');
+INSERT INTO  member2 (NAME, TEL, ADDR, BIRTHDAY)
+	VALUES ('김유신', '010-222-2222', '서울', '2021-06-16');
+
+--
+
+UPDATE memeber2 SET tel='010-111-1111' WHERE no=1;
+
+UPDATE member2
+	SET addr='서울',
+	birthday='2021-06-15'
+	WHERE no=1;
+
+UPDATE member2
+	SET tel='010-4444-4444'
+	WHERE name='김유신';
+
+UPDATE member2
+	SET tel='010-5555-5555'
+	WHERE name like '%신';
+
+--
+
+DELETE FROM member2 WHERE no=2;
+
+SELECT * from member2;
+
+--
+
+CREATE DATABASE IF NOT EXISTS nms;
+
+SHOW DATABASES;
+
+USE nms;
+
+CREATE TABLE members (
+	no INT PRIMARY KEY AUTO_INCREMENT,
+	name VARCHAR(20) NOT NULL,
+	tel VARCHAR(20),
+	addr VARCHAR(50),
+	license ENUM('y','n') 
+);
+
+INSERT INTO  members (name, tel, addr, license)
+	VALUES ('김승용', '051-123-4567', '부산광역시 남구 대연동', 'y');
+INSERT INTO  members (name, tel, addr, license)
+	VALUES ('김양호', '051-890-1234', '부산광역시 사상구 확장동', 'n');
+INSERT INTO  members (name, tel, addr, license)
+	VALUES ('임정제', '02-1234-1234', '서울특별시 강남구 삼성동', 'n');
+INSERT INTO  members (name, tel, addr, license)
+	VALUES ('김재호', '052-098-7654', '울산광역시 남구 야음동', 'n');
+INSERT INTO  members (name, tel, addr, license)
+	VALUES ('전용진', '043-456-4567', '충청남도 논산군 논산읍', 'y');
+INSERT INTO  members (name, tel, addr, license)
+	VALUES ('황인용', '051-234-1234', '부산광역시 연제구 연산동', 'n');
+INSERT INTO  members (name, tel, addr, license)
+	VALUES ('박지호', '031-345-6789', '인천과아역시 남구 주안동', 'y');
+
+UPDATE members
+	SET name='상대방'
+	WHERE no=1;
+
+DELETE FROM members WHERE no=3;
+
+DELETE FROM members WHERE addr LIKE '충청%';
+
+UPDATE members
+	SET license='y'
+	WHERE addr LIKE '부산%';
+
+SELECT * FROM members;
+
+--
+
+CREATE DATABASE IF NOT EXIST iot;
+
+SHOW DATABASE;
+
+USE iot;
+
+CREATE TABLE student (
+	num INT PRIMARY KEY AUTO_INCREMENT,
+	name VARCHAR(20) NOT NULL,
+	tel VARCHAR(20) NOT NULL,
+	email VARCHAR(30),
+	addr VARCHAR(50),
+	edate DATE
+);
+
+SHOW TABLES;
+DESC student;
+
+INSERT INTO student (name, tel, email, addr, edate) 
+	VALUES ('홍길동','010-111-1111','aaa@naver.com','부산광역시 북구 덕천동','2021-03-02');
+INSERT INTO student (name, tel, email, addr, edate) 
+	VALUES ('김유신','010-222-2222','bbb@naver.com','울산광역시 남구 야음동','2020-03-02');
+INSERT INTO student (name, tel, email, addr, edate) 
+	VALUES ('이순신','010-333-3333','ccc@naver.com','대구광역시 동구 신천동','2020-03-02');
+INSERT INTO student (name, tel, email, addr, edate) 
+	VALUES ('강감찬','010-444-4444','ddd@naver.com','서울특별시 강남구 개포동','2019-03-02');
+INSERT INTO student (name, tel, email, addr, edate) 
+	VALUES ('임꺽정','010-555-5555','eee@daum.net','인천광역시 남구 주안동','2021-03-02');
+
+UPDATE student
+	SET tel='010-1111-1111'
+	WHERE num=1;
+
+SELECT * FROM student 
+	WHERE addr like '%광역%'
+	ORDER BY name ASC;
+
+SELECT * FROM student
+	WHERE num BETWEEN 2 AND 4;
+
+SELECT * FROM student;
+
+SELECT COUNT(*) as '인원수' FROM student;
+
+SELECT MAX(num) as '최대값' FROM student;
+
+SELECT MIN(num) as '최소값' FROM student;
+
+SELECT SUM(num) as '합계' FROM student;
+
+SELECT AVG(num) as '평균' FROM student;
+
+--
+
+2-3
+SELECT prod_id, prod_name, prod_price FROM products;
+
+2-4
+SELECT prod_name FROM products WHERE prod_price >= 4;
+
+2-5
+SELECT prod_name, prod_price FROM products WHERE prod_name LIKE '%bean%' ORDER BY prod_price DESC;
+
+2-10
+SELECT prod_name FROM products WHERE prod_price = (SELECT MIN(prod_price) FROM products) ;
+
+2-11
+SELECT * FROM products WHERE prod_price >= (SELECT AVG(prod_price) FROM products) ORDER BY prod_name;
+
+2-14
+SELECT SUM(quantity) as '합계' FROM orderitems WHERE prod_id='BR03';
+
+--
+
+DML 예제
+
+CREATE DATABASE IF NOT EXISTS test;
+
+SHOW DATABASE;
+
+USE test;
+
+CREATE TABLE employee (
+	perno INT PRIMARY KEY AUTO_INCREMENT,
+	pname VARCHAR(10) NOT NULL,
+	job VARCHAR(10) NOT NULL,
+	hiredate DATE NOT NULL,
+	firedate DATE,
+	sal INT,
+	bonus INT,
+	deptno INT NOT NULL
+);
+
+DESC employee;
+
+INSERT INTO employee (pname, job, hiredate, firedate, sal, bonus, deptno)
+	VALUES ('박청규', '사원', '2010-03-02', '2012-08-31', 880000, NULL, 10);
+INSERT INTO employee (pname, job, hiredate, firedate, sal, bonus, deptno)
+	VALUES ('강원일', '팀장', '2010-08-02', NULL, 2000000, 200000, 10);
+INSERT INTO employee (pname, job, hiredate, firedate, sal, bonus, deptno)
+	VALUES ('이봉수', '부장', '2010-01-02', '2012-02-28', 3000000, 300000, 10);
+INSERT INTO employee (pname, job, hiredate, firedate, sal, bonus, deptno)
+	VALUES ('허태훈', '과장', '2010-05-02', NULL, 1800000, 100000, 10);
+INSERT INTO employee (pname, job, hiredate, firedate, sal, bonus, deptno)
+	VALUES ('윤주용', '사원', '2011-12-02', NULL, 1500000, NULL, 10);
+INSERT INTO employee (pname, job, hiredate, firedate, sal, bonus, deptno)
+	VALUES ('김태환', '대리', '2010-08-01', '2012-04-30', 1700000, NULL, 20);
+INSERT INTO employee (pname, job, hiredate, firedate, sal, bonus, deptno)
+	VALUES ('배현직', '본부장', '2010-01-02', NULL, 2500000, 200000, 20);
+INSERT INTO employee (pname, job, hiredate, firedate, sal, bonus, deptno)
+	VALUES ('전민철', '이사', '2010-01-02', NULL, 2500000, 50000, 30);
+INSERT INTO employee (pname, job, hiredate, firedate, sal, bonus, deptno)
+	VALUES ('심승진', 'CEO', '2010-01-02', NULL, 10000000, NULL, 30);
+INSERT INTO employee (pname, job, hiredate, firedate, sal, bonus, deptno)
+	VALUES ('강대원', '과장', '2012-02-01', '2012-08-31', 2000000, 200000, 40);
+INSERT INTO employee (pname, job, hiredate, firedate, sal, bonus, deptno)
+	VALUES ('유성원', '대리', '2012-02-01', NULL, 1600000, NULL, 30);
+INSERT INTO employee (pname, job, hiredate, firedate, sal, bonus, deptno)
+	VALUES ('안재연', '과장', '2012-02-01', NULL, 2000000, 200000, 40);
+INSERT INTO employee (pname, job, hiredate, firedate, sal, bonus, deptno)
+	VALUES ('김진수', '사원', '2012-03-02', NULL, 880000, NULL, 40);
+INSERT INTO employee (pname, job, hiredate, firedate, sal, bonus, deptno)
+	VALUES ('김성하', '사원', '2012-04-01', NULL, 1000000, NULL, 40);
+INSERT INTO employee (pname, job, hiredate, firedate, sal, bonus, deptno)
+	VALUES ('황철원', '대리', '2011-12-01', NULL, 1500000, 15000, 40);
+INSERT INTO employee (pname, job, hiredate, firedate, sal, bonus, deptno)
+	VALUES ('엄효인', '사원', '2011-12-15', NULL, 1200000, NULL, 40);
+
+
+SELECT * FROM employee;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

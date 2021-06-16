@@ -1,0 +1,54 @@
+※ 아래의 지시사항에 따라 실습하여 보시오.
+문제1. bbs 라는 데이터베이스를 생성하여 보시오.
+CREATE DATABASE IF NOT EXISTS bbs;
+SHOW DATABASES;
+
+문제2. 문제1에서 생성한 데이터베이스를 지정하고 확인하여 보시오.
+USE bbs;
+
+문제3. 문제1에서 생성한 데이터베이스에 board라는 테이블을 생성하시오. 
+단, 열의 이름은 num, name, subject, content 로 하고 각각의 자료형은 int, varchar(20), varchar(100), text로 하시오.
+
+CREATE TABLE board (
+	num INT,
+	name VARCHAR(20),
+	subject VARCHAR(100),
+	content TEXT
+);
+
+
+문제4. 문제3에서 생성한 테이블이 제대로 만들어 졌는지 확인하여 보시오.
+
+SHOW TABLES;
+
+문제5. 문제3에서 생성한 테이블의 구조를 확인하여 보시오.
+
+DESC board;
+
+문제6. 문제3에서 생성한 테이블을 삭제하여 보시오.
+
+DROP TABLE board;
+
+문제7. 문제1에서 생성한 데이터베이스를 삭제하여 보시오.
+
+DROP DATABASE bbs;
+
+문제8. linux데이터베이스를 생성하시오. 단, 해당 데이터베이스가 존재하지 않는다면 생성하시오.
+
+문제9. linux 데이터베이스를 지정하시오.
+
+문제10. 테이블을 생성하시오 (테이블명: users).
+컬럼명  |  자료형       | 설명
+no       |    int          | 번호
+name   | varchar(20) | 이름
+tel       | varchar(20) | 연락처
+addr    | varchar(50) | 주소
+license | varchar(50) | 자격증
+
+문제11. 문제10에서 생성한 테이블이 제대로 만들어 졌는지 확인하여 보시오.
+
+문제12. 문제10에서 생성한 테이블의 구조를 확인하여 보시오.
+
+문제13. users 테이블을 삭제하시오.
+
+문제14. linux 데이터베이스를 삭제하시오.
