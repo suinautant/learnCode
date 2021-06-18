@@ -132,3 +132,69 @@ v문제18. 부서별로 부서번호와 월급여의 합계를 출력하여 보�
 	// 사원과 대리가 아닌 경우 NOT IN
 	SELECT job FROM employee
 		WHERE job NOT IN ('사원', '대리');
+문제21. 직급이 과장인 사람의 급여평균을 구하여 보시오. 
+단, 별칭은 임의로 하고 소수점 첫째자리까지 반올림하시오.
+
+	SELECT ROUND(AVG(sal), 2) AS '평균 급여' FROM employee
+		GROUP BY job
+		HAVING job='과장';
+
+	SELECT SUM(sal) FROM employee
+		GROUP BY job
+		HAVING job='과장';
+	
+
+문제22. 2010년에 입사한 사람의 이름, 입사일, 급여를 검색하여 보시오. 
+단, 연도는 MySQL에서 제공하는 날짜 관련 함수를 사용하시오.
+
+
+문제23. 부서번호가 10인 부서를 총무부로 출력하여 보시오. 
+단, MySQL에서 제공하는 관련 함수를 사용하시오.
+
+	SELECT perno, pname, job, hiredate, firedate, sal, bonus, REPLACE(deptno, 10, '총무부') AS '부서' 
+		FROM employee;
+
+문제24. 1월에 입사한 사람수를 출력하여 보시오. 
+단, MySQL에서 제공하는 관련 함수를 사용하시오.
+
+	SELECT * FROM employee
+		WHERE MONTH(hiredate)='01';
+
+	SELECT * FROM employee
+		WHERE hiredate LIKE '%-01-%';
+
+문제25. 직급이 사원, 대리, 팀장의 이름과 입사년도를 출력하여 보시오. 
+단, 연도는 MySQL에서 제공하는 날짜 관련 함수를 사용하시오.
+
+	SELECT 	pname AS '이름', 
+		job AS '직급',
+		YEAR(hiredate) AS '입사년도' 
+		FROM employee
+		WHERE job='사원' OR job='대리' OR job='팀장'
+		ORDER BY job;
+
+
+SELECT
+	pname AS '이름', 
+	job AS '직급',
+	YEAR(hiredate) AS '입사년도' 
+FROM
+	employee
+WHERE 
+	job='사원' OR job='대리' OR job='팀장'
+ORDER BY 
+	FIELD(job, '팀장', '대리', '사원') ;
+
+
+
+
+
+
+
+
+
+
+
+
+
+

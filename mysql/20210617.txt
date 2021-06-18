@@ -1,0 +1,174 @@
+2-1
+	CREATE DATABASE IF NOT EXISTS exam;
+
+2-2
+	DESC exam;
+
+2-4
+	SELECT prod_name FROM products
+	WHERE prod_name >= 4;
+
+	SELECT prod_name, prod_price FROM products
+	WHERE prod_name >= 4;
+
+2-9
+	SELECT SUM(prod_price) FROM products
+	WHERE prod_price BETWEEN 5 AND 8;
+
+--
+
+2-4
+SELECT prod_id, quantity, item_price, quantity*item_price as '단가'
+	FROM orderitems;
+	
+2-5
+SELECT prod_name, prod_price 
+	FROM products
+	WHERE prod_name LIKE '%bean%'
+	ORDER BY prod_price DESC;
+
+SELECT prod_name, prod_price 
+	FROM products
+	WHERE prod_name LIKE '%bear%' 
+	ORDER BY prod_price DESC;
+
+2-6 bean는 결과값 확인이 어려워 bear로 변경
+SELECT prod_name, prod_price, prod_id 
+	FROM products
+	WHERE prod_id = 
+		(SELECT MIN(prod_id) FROM products
+		WHERE prod_name LIKE '%bear%');
+
+2-8
+SELECT * FROM orders
+	WHERE LEFT(order_date, 4) = '2004';
+
+SELECT * FROM orders
+	WHERE year(order_date) = '2004';
+
+2-9 
+SELECT sum(prod_price) FROM products
+	WHERE prod_price BETWEEN 3 AND 5;
+
+SELECT prod_price FROM products
+	WHERE prod_price BETWEEN 3 AND 5;
+
+2-10
+SELECT prod_name 
+	FROM products
+	WHERE prod_price = (SELECT MIN(prod_price) FROM products);
+
+2-11
+SELECT * FROM orders
+	WHERE order_date BETWEEN '2004-01-01' AND '2004-02-29';
+
+2-12
+SELECT prod_name, prod_price
+	FROM products
+	WHERE prod_price >= (SELECT AVG(prod_price) FROM products);
+
+2-13
+SELECT COUNT(*) AS '고객수' FROM customers
+	WHERE cust_name LIKE 'F%';
+
+2-14
+SELECT * FROM vendors
+	WHERE vend_state IS NULL;
+
+
+--
+
+SELECT COUNT(*)  AS '인원수'
+	FROM employee
+	WHERE deptno=10;
+
+SELECT pname AS '인원수'
+	FROM employee
+	WHERE deptno=10;
+
+SELECT deptno, pname, COUNT(*) AS '인원수'
+	FROM employee
+	GROUP BY deptno
+	HAVING deptno=10;
+
+SELECT deptno, COUNT(*) AS '인원수'
+	FROM employee
+	GROUP BY deptno
+	HAVING deptno IN
+		(SELECT DISTINCT deptno FROM employee);
+
+SELECT deptno, SUM(sal) AS '합계' FROM employee
+	GROUP BY deptno
+	HAVING SUM(sal) >= 10000000;
+
+
+SELECT * FROM employee
+	ORDER BY sal DESC;
+
+SELECT * FROM employee
+	ORDER BY sal DESC
+	LIMIT 3;
+
+--
+UNION : 쿼리 결합, 중복 제거
+UNION ALL : 중복 제거 없음
+--
+
+USE exam;
+
+SELECT * FROM products
+	WHERE prod_price BETWEEN 5 AND 10
+
+UNION
+
+SELECT * FROM products
+	WHERE prod_price >= 10;
+
+SELECT * FROM products
+	WHERE prod_name LIKE '%bear%';
+
+--
+
+SELECT * FROM products
+	WHERE prod_price >= 5
+
+UNION ALL
+
+SELECT * FROM products
+	WHERE prod_name LIKE '%bear%';
+
+--
+
+SELECT * FROM products
+	WHERE prod_price >= 5
+
+UNION
+
+SELECT * FROM products
+	WHERE prod_name LIKE '%bear%';
+
+--
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
