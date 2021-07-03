@@ -1,0 +1,8 @@
+package ch04.com.dao;
+
+public class Calculator {
+	public ini process(int N) {
+		return n * n * n;
+	}
+
+}

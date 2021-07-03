@@ -1,0 +1,12 @@
+package dto;
+
+public class ProductRepository {
+	private ArrayList<Product> listOfProducts = new ArrayList<Product>();
+	
+	public ProductRepository() {
+		Product phone = new Product("P1234", "iPhone 6s", 800000);
+		phone.setDescription("4.7-inch, 1334X750 Retina HD display, 8-megapixel iSight Camera");
+		
+	}
+
+}

@@ -1,0 +1,15 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<form action="./response01_success.jsp" method="post">
+	<p>아  이  디 : <input name="userid" /></p>
+	<p>비밀번호 : <input name="userpw" /></p>
+	</form>
+</body>
+</html>

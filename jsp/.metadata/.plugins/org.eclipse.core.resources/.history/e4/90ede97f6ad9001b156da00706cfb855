@@ -1,0 +1,10 @@
+package ch05.com.dao2;
+
+public class Calcu {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}

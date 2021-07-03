@@ -1,0 +1,32 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<h2>회원가입</h2>
+	<form action="./register02_result.jsp" method="post">
+		<p>
+			<input type="text" name="email" placeholder="이메일 주소*" required />
+		</p>
+		<p>
+			<input type="text" name="name" placeholder="이름*" />
+		</p>
+		<p>
+			<input type="text" name="passwd" placeholder="비밀번호*" />
+		</p>
+		<p>
+			<input type="text" name="passwd2" placeholder="비밀번호 확인*" />
+		</p>
+		<p>
+			<input type="text" name="email2" placeholder="이메일 주소 확인*" />
+		</p>
+		<p>
+			<input type="submit" name="" value="등록" />
+		</p>
+	</form>
+
+</body>
+</html>

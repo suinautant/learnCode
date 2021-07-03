@@ -1,0 +1,34 @@
+<%@page import="dao.Product"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<jsp:useBean id="productDAO" class="dao.ProductRepository" scope="session" />
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+<title>Insert title here</title>
+</head>
+<body>
+	<jsp:include page="menu.jsp" />
+	<div class="jumbotron">
+		<div class="container">
+			<h1 class="display-3">상품 정보</h1>
+		</div>
+	</div>
+
+	<%
+		String id = request.getParameter("id");
+	Product product = productDAO.getProductById(id);
+	%>
+	<div class="container">
+		<div class="row">
+			<div class="col-md-6">
+				<h3><%=product.getPname()%></h3>
+				<p><%=product.getDescription()%>
+				<p>
+					<b>상품 코드 : </b><span calss="badge badge-danger"><%=product.getProductId()%></span>
+			</div>
+		</div>
+	</div>
+</body>
+</html>
