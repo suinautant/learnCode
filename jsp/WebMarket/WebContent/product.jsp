@@ -1,6 +1,6 @@
+<%@page import="dao.ProductRepository"%>
 <%@page import="dao.Product"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<jsp:useBean id="productDAO" class="dao.ProductRepository" scope="session" />
 <!DOCTYPE html>
 <html>
 <head>
@@ -18,7 +18,8 @@
 
 	<%
 		String id = request.getParameter("id");
-	Product product = productDAO.getProductById(id);
+	ProductRepository dao = ProductRepository.getInstance();
+	Product product = dao.getProductById(id);
 	%>
 	<div class="container">
 		<div class="row">
@@ -27,12 +28,19 @@
 				<p><%=product.getDescription()%>
 				<p>
 					<b>상품 코드 : </b><span class="badge badge-danger"><%=product.getProductId()%></span>
-					<p><b>제조사</b> : <%=product.getManufacturer() %></p>
-					<p><b>분류</b> : <%=product.getCategory() %></p>
-					<p><b>재고 수</b> : <%=product.getUnitsInStock() %></p>
-					<h4><%=product.getUnitPrice() %>원</h4>
-					<p><a href="#" class="btn btn-info">상품 주문 &raquo;</a>
-					<a href="./products.jsp" class="btn btn-seconary">상품 목록&raquo;</a>
+				<p>
+					<b>제조사</b> :
+					<%=product.getManufacturer()%></p>
+				<p>
+					<b>분류</b> :
+					<%=product.getCategory()%></p>
+				<p>
+					<b>재고 수</b> :
+					<%=product.getUnitsInStock()%></p>
+				<h4><%=product.getUnitPrice()%>원
+				</h4>
+				<p>
+					<a href="#" class="btn btn-info">상품 주문 &raquo;</a> <a href="./products.jsp" class="btn btn-seconary">상품 목록&raquo;</a>
 			</div>
 		</div>
 		<hr>
