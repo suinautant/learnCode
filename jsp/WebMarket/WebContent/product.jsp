@@ -1,5 +1,6 @@
 <%@page import="dao.ProductRepository"%>
 <%@page import="dto.Product"%>
+<%@ page errorPage="exceptionNoProductId.jsp"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -17,7 +18,7 @@
 	</div>
 
 	<%
-		String id = request.getParameter("id");
+	String id = request.getParameter("id");
 	ProductRepository dao = ProductRepository.getInstance();
 	Product product = dao.getProductById(id);
 	%>
