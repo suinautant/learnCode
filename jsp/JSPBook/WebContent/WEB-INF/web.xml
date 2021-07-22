@@ -21,6 +21,7 @@
 			<form-error-page>/ch10/login_failed.jsp</form-error-page>
 		</form-login-config>
 	</login-config>
+<!-- 
 	<filter>
 		<filter-name>Filter01</filter-name>
 		<filter-class>ch12.com.filter.AuthenFilter</filter-class>
@@ -57,5 +58,6 @@
 		<filter-name>Filter02_2</filter-name>
 		<url-pattern>/ch12/filter02_process.jsp</url-pattern>
 	</filter-mapping>
+-->
 
 </web-app>

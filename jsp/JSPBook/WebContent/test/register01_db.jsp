@@ -6,8 +6,8 @@
 <title>회원가입</title>
 <script type="text/javascript">
 	function checkForm() {
-/* 		var joinFormEl = document.getElementById('joinForm');
-		var idEl = document.getElementById('id');
+ 		var joinFormEl = document.getElementById('joinForm');
+/*		var idEl = document.getElementById('id');
 		var passwordEl = document.getElementById('password');
 		var nameEl = document.getElementById('name');
 		var tel1El = document.getElementById('tel1');
@@ -98,7 +98,7 @@
 </head>
 <body onload="document.getElementById('id').focus();">
 	<h2>회원 가입</h2>
-	<form id="joinForm" action="register01_action.jsp" method="post">
+	<form id="joinForm" action="register01_db_action.jsp" method="post">
 		<p>
 			아이디 :
 			<input id="id" type="text" name="id" />
@@ -128,18 +128,18 @@
 		</p>
 		<p>
 			성별 :
-			<input id="sex" type="radio" name="sex" value="male" checked />
+			<input id="sex" type="radio" name="sex" value="남자" checked />
 			남자
-			<input id="sex" type="radio" name="sex" value="female" />
+			<input id="sex" type="radio" name="sex" value="여자" />
 			여자
 		</p>
 		<p>
 			취미 :
-			<input id="hobby" type="checkbox" name="hobby" value="reading" checked />
+			<input id="hobby" type="checkbox" name="hobby" value="독서" checked />
 			독서
-			<input id="hobby" type="checkbox" name="hobby" value="excercise" />
+			<input id="hobby" type="checkbox" name="hobby" value="운동" />
 			운동
-			<input id="hobby" type="checkbox" name="hobby" value="movie" />
+			<input id="hobby" type="checkbox" name="hobby" value="영화" />
 			영화
 		</p>
 		<p>

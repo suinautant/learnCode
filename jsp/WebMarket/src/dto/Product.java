@@ -15,7 +15,16 @@ public class Product implements Serializable {
 	private String category;
 	private long unitsInStock;
 	private String condition;
-	private String filename;
+	private String filename; 	//이미지 파일명
+	private int quantity;	 	// 장비구니에 담은 개수
+
+	public int getQuantity() {
+		return quantity;
+	}
+
+	public void setQuantity(int quantity) {
+		this.quantity = quantity;
+	}
 
 	public String getFilename() {
 		return filename;
