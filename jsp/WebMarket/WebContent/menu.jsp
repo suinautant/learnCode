@@ -1,16 +1,31 @@
+<%@ page contentType="text/html; charset=utf-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%
+String sessionId = (String) session.getAttribute("sessionId");
+%>
 <nav class="navbar navbar-expand navbar-dark bg-dark">
 	<div class="container">
 		<div class="navbar-header">
 			<a class="navbar-brand" href="./welcome.jsp">Home</a>
 		</div>
-		<div class="navbar-header">
-			<a class="navbar-brand" href="./products.jsp">List</a>
-		</div>
-		<div class="navbar-header">
-			<a class="navbar-brand" href="./addProduct.jsp">Add</a>
-		</div>
-		<div class="navbar-header">
-			<a class="navbar-brand" href="./cart.jsp">Cart<a>
+		<div>
+			<ul class="navbar-nav mr-auto">
+				<c:choose>
+					<c:when test="${empty sessionId}">
+						<li class="nav-item"><a class="nav-link" href="./member/loginMember.jsp">로그인</a></li>
+						<li class="nav-item"><a class="nav-link" href="./member/addMember.jsp">회원 가입</a></li>
+					</c:when>
+					<c:otherwise>
+						<li class="nav-item"><a class="nav-link" href="./member/logoutMember.jsp">로그아웃</a></li>
+						<li class="nav-item"><a class="nav-link" href="./member/updateMember.jsp">회원 수정</a></li>
+					</c:otherwise>
+				</c:choose>
+				<li class="nav-item"><a class="nav-link" href="./products.jsp">상품 목록</a></li>
+				<li class="nav-item"><a class="nav-link" href="./addProduct.jsp">상품 추가</a></li>
+				<li class="nav-item"><a class="nav-link" href="./editProduct.jsp?edit=update">상품 수정</a></li>
+				<li class="nav-item"><a class="nav-link" href="./editProduct.jsp?edit=delete">상품 삭제</a></li>
+				<li class="nav-item"><a class="nav-link" href="./cart.jsp">장바구니</a></li>
+			</ul>
 		</div>
 	</div>
 </nav>

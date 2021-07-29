@@ -7,7 +7,7 @@
 <script type="text/javascript">
 	function checkForm() {
  		var joinFormEl = document.getElementById('joinForm');
-/*		var idEl = document.getElementById('id');
+		var idEl = document.getElementById('id');
 		var passwordEl = document.getElementById('password');
 		var nameEl = document.getElementById('name');
 		var tel1El = document.getElementById('tel1');
@@ -90,7 +90,7 @@
 			joinHelloEl.value = '';
 			joinHelloEl.focus();
 			return false;
-		} */
+		} 
 
 		joinFormEl.submit();
 	}
