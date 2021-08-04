@@ -22,11 +22,13 @@ input, textarea, input:focus, textarea:focus {
 
 		if (user_id.equals("admin")) {
 			out.println("<h3>" + user_id + "님 어서오세요!! (관리자)</h3>");
+			out.println("<p>" + "<a href='./logout.jsp'>로그아웃</a> | <a href='./list.jsp'>회원목록</a>" + "</p>");
 
 		} else {
-			out.println("<h3>" + user_id + "님 어서오세요!!</h3>");
+			out.println("<h3>" + user_id + "님. 어서오세요!!</h3>");
+			out.println("<p>" + "<a href='./logout.jsp'>로그아웃</a> | " + "<a href='modify.jsp?id=" + user_id + "'>회원수정</a> | " + "<a href='delete.jsp?id="
+			+ user_id + "'>회원탈퇴</a>" + "</p>");
 		}
-		out.println(" <p> <a href='./logout.jsp'>로그아웃</a> </p>");
 	} else {
 	%>
 
@@ -43,9 +45,6 @@ input, textarea, input:focus, textarea:focus {
 			<input type="submit" />
 		</p>
 	</form>
-	<p>
-		<a href="./list.jsp">회원목록</a>
-	</p>
 
 	<%
 	}
