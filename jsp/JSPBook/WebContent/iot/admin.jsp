@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>회원목록</title>
+<title>관리자 페이지</title>
 </head>
 <body>
 	<%
@@ -30,22 +30,9 @@
 		rs = pstmt.executeQuery();
 
 	out.println(" <p> " + "<a href='./logout.jsp'>로그아웃</a> | " + "<a href='modify.jsp?id=" + user_id + "'>회원수정</a> | " + "<a href='delete.jsp?id=" + user_id + "'>회원탈퇴</a>" + " </p> ");
+	
 	%>
-	<table border="1">
-		<tr>
-			<th>아이디</th>
-			<th>패스워드</th>
-			<th>생년월일</th>
-			<th>이메일</th>
-			<th>성별</th>
-			<th>취미</th>
-			<th>우편번호</th>
-			<th>주소</th>
-			<th>상세주소</th>
-			<th>소개</th>
-		</tr>
-
-		<%
+			<%
 		while (rs.next()) {
 
 			String id = rs.getString("id");
@@ -82,7 +69,5 @@
 			conn.close();
 		}
 		%>
-
-	</table>
 </body>
 </html>

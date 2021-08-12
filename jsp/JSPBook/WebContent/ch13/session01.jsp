@@ -4,20 +4,17 @@
 <head>
 <meta charset="UTF-8">
 <title>Session</title>
+<style>
+input, textarea, input:focus, textarea:focus {
+	outline: none !important;
+	border-color: #719ECE;
+}
+</style>
 </head>
 <body>
 	<form action="session1_process.jsp" method="POST">
-		<P>
-			아이디 :
-			<input type="text" name="id" />
-		</P>
-		<P>
-			비밀번호 :
-			<input type="text" name="passwd" />
-		</P>
-		<P>
-			<input type="submit" value="전송" />
-		</P>
-	</form>
+		<P> 아이디 : <input type="text" name="id" /> </P>
+		<P> 비밀번호 : <input type="text" name="passwd" /> </P>
+		<P> <input type="submit" value="전송" /> </P> </form>
 </body>
 </html>

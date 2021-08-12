@@ -88,18 +88,14 @@ input, textarea, input:focus, textarea:focus {
 	String rProfile = rs.getString("profile");
 
 	// for email split
-	String[] tmpArray = rEmail.split("@");
-	String email1 = tmpArray[0];
-	String email2 = tmpArray[1];
+	String[] email = rEmail.split("@");
 
 	// for gender checkbox
 	String isGenderMan = "";
 	String isGenderWoman = "";
 	if (rGender.equals("남")) {
 		isGenderMan = "checked";
-		isGenderWoman = "";
-	} else {
-		isGenderMan = "";
+	} else if (rGender.equals("여")) {
 		isGenderWoman = "checked";
 	}
 
@@ -131,9 +127,9 @@ input, textarea, input:focus, textarea:focus {
 		</p>
 		<p>
 			<label>* 전자우편 : </label>
-			<input type="text" name="email1" value="<%=email1%>" />
+			<input type="text" name="email1" value="<%=email[0]%>" />
 			@
-			<input type="text" name="email2" value="<%=email2%>" />
+			<input type="text" name="email2" value="<%=email[1]%>" />
 		</p>
 		<p>
 			<label>성별 : </label>
